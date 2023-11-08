@@ -19,7 +19,7 @@ export default function Home() {
 
   const [isClicked, setisClicked] = useState(0);
 
-  function addTask(event: MouseEvent<HTMLButtonElement, MouseEvent>): void {
+  function addTask(): void {
     if (isClicked === 0) {
       setisClicked(1);
     } else {
@@ -28,15 +28,12 @@ export default function Home() {
     console.log(isClicked);
   }
 
-  async function handleAddTask(event: MouseEvent<HTMLButtonElement, MouseEvent>): void {
-    event.preventDefault();
-
+  function handleAddTask(): void {
     // Check if any of the input fields is empty and set an error message if so
     if (!taskListData.TaskName || !taskListData.TaskDescription || !taskListData.TaskDeadline) {
       setErrorMessage('Please fill in all fields.');
       return;
     }
-
     // Create a new task object using the current input values
     const newTask: TaskListData = {
       TaskName: taskListData.TaskName,
@@ -59,7 +56,6 @@ export default function Home() {
   function handleTaskCompleted(taskName: string): void {
     // Find the task to mark as completed in the main task list
     const completedTask = taskList.find((task) => task.TaskName === taskName);
-
     if (completedTask) {
       // Add the completed task to the completed task list
       setCompletedTaskList([...completedTaskList, completedTask]);
