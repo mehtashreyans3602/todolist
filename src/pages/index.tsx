@@ -87,7 +87,7 @@ export default function Home() {
 
   return (
     <div className="text-white">
-      <div className="items-center p-1 text-3xl border-b-2">Todolist</div>
+      <div className="w-full text-center items-center p-1 text-3xl border-b-2">Todolist</div>
       <div className="flex flex-col-reverse justify-center items-center">
         <div className='w-full flex flex-col md:flex-row justify-evenly p-2 m-1 md:space-y-0 space-y-2'>
           <div>
