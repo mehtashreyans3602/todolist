@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface TaskListData {
   TaskName: string;
@@ -19,6 +19,9 @@ export default function Home() {
     TaskDeadline: '',
     Status: selectedOption || '',
   });
+  
+const totalTasks = taskList.length + completedTaskList.length;
+const completedTasks = completedTaskList.length;
 
   const [isClicked, setisClicked] = useState(0);
 
@@ -91,7 +94,7 @@ export default function Home() {
       <div className="flex flex-col-reverse justify-center items-center">
         <div className='w-full flex flex-col md:flex-row justify-evenly p-2 m-1 md:space-y-0 space-y-2'>
           <div>
-            <div>Tasks to Complete:</div>
+            <div>Tasks to Complete:{totalTasks - completedTasks}</div>
             {taskList.map((task, index) => (
               <div
                 className="flex md:flex-row flex-col m-1 md:space-x-2 space-x-0 md:space-y-0 space-y-2"
@@ -123,7 +126,7 @@ export default function Home() {
             ))}
           </div>
           <div>
-            <div>Completed Tasks:</div>
+            <div>Completed Tasks:{completedTasks}</div>
             {completedTaskList.map((task, index) => (
               <div
                 className="flex md:flex-row flex-col m-1 md:space-x-2 space-x-0 md:space-y-0 space-y-2"
