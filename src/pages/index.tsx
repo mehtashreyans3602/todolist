@@ -150,7 +150,7 @@ export default function Home() {
               Create Task
             </button>
           ) : (
-            <div className="w-[50vh] md:w-[300px] h-[200px] rounded-lg drop-shadow-lg bg-gray-800 p-2 m-1 text-black">
+            <div className="w-[45vh] md:w-[300px] h-[200px] rounded-lg drop-shadow-lg bg-gray-800 p-2 m-1 text-black">
               <form className="flex flex-col space-y-1 justify-center">
                 {errorMessage && <p className="text-red-500">{errorMessage}</p>}
                 <input
